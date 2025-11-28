@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controlador.TiendaController">
+
+    <top>
+        <Label text="Sistema de ventas" BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <GridPane hgap="10" vgap="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <columnConstraints>
+                <ColumnConstraints percentWidth="60"/>
+                <ColumnConstraints percentWidth="40"/>
+            </columnConstraints>
+
+            <children>
+                <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <children>
+                        <Label text="Productos"/>
+                        <TableView fx:id="tablaProductos" prefHeight="200" prefWidth="400">
+                            <columns>
+                                <TableColumn fx:id="colNombre" text="Nombre"/>
+                                <TableColumn fx:id="colPrecio" text="Precio"/>
+                                <TableColumn fx:id="colStock" text="Stock"/>
+                            </columns>
+                        </TableView>
+
+                        <HBox spacing="5">
+                            <children>
+                                <Label text="Cantidad:"/>
+                                <TextField fx:id="txtCantidad" prefWidth="80"/>
+                                <Button text="Agregar al carrito"
+                                        onAction="#agregarAlCarrito"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
+                <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <children>
+                        <Label text="Carrito"/>
+                        <ListView fx:id="listCarrito" prefHeight="200"/>
+                        <Button text="Finalizar compra"
+                                onAction="#finalizarCompra"/>
+                        <Label fx:id="lblMensaje" text=""/>
+                    </children>
+                </VBox>
+            </children>
+        </GridPane>
+    </center>
+
+</BorderPane>
